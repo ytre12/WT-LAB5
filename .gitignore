@@ -1,0 +1,34 @@
+# --- Віртуальні середовища ---
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# --- Кеші та збірка ---
+build/
+dist/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- Flask / проєкт ---
+instance/
+.env
+.flaskenv
+
+# --- IDE та ОС ---
+.vscode/
+.idea/
+.DS_Store
