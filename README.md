@@ -1,5 +1,11 @@
 # LAB 5 — Резервація столика
 
+   ![Jinja](https://img.shields.io/badge/jinja-%237E0C1B.svg?style=for-the-badge&logo=jinja&logoColor=white)
+   ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
+   ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+   ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+   ![CSS](https://img.shields.io/badge/css-%23663399.svg?style=for-the-badge&logo=css&logoColor=white)
+   
 ## Вимоги
 
 - Python 3.9 або новіший
