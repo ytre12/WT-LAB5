@@ -25,6 +25,7 @@ htmlcov/
 
 # --- Flask / проєкт ---
 instance/
+data/
 .env
 .flaskenv
 

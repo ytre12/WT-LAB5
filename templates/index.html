@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Form{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <p class="tag">Резервація</p>
+  <h1>Заповніть всі поля</h1>
+</section>
+
+<section class="panel narrow">
+  {% if errors %}
+  <div class="alert" role="alert">
+    <span aria-hidden="true">!</span>
+    <div>
+      <strong>Перевірте форму:</strong>
+      <ul>
+        {% for error in errors.values() %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('index') }}">
+    <div class="grid">
+      <label for="first-name">
+        Ваше імʼя
+        <input
+          id="first-name"
+          name="first_name"
+          type="text"
+          maxlength="20"
+          value="{{ values.first_name }}"
+          required
+        />
+      </label>
+
+      <label for="last-name">
+        Ваше прізвище
+        <input
+          id="last-name"
+          name="last_name"
+          type="text"
+          maxlength="40"
+          value="{{ values.last_name }}"
+          required
+        />
+      </label>
+
+      <label for="age">
+        Ваш вік
+        <input
+          id="age"
+          name="age"
+          type="number"
+          min="1"
+          max="120"
+          value="{{ values.age or '18' }}"
+          required
+        />
+      </label>
+
+      <label for="email">
+        Ваш email
+        <input
+          id="email"
+          name="email"
+          type="email"
+          maxlength="254"
+          value="{{ values.email }}"
+          required
+        />
+      </label>
+
+      <label for="location">
+        Виберіть локацію
+        <select name="location" id="location">
+          <option value="Uman" {{ 'selected' if values.location == 'Uman' }}>Uman</option>
+          <option value="Cherkasy" {{ 'selected' if values.location == 'Cherkasy' }}>Cherkasy</option>
+          <option value="Zolotonocha" {{ 'selected' if values.location == 'Zolotonocha' }}>Zolotonocha</option>
+          <option value="Smila" {{ 'selected' if values.location == 'Smila' }}>Smila</option>
+        </select>
+      </label>
+
+      <label for="table">
+        Номер столику
+        <select name="table" id="table">
+          <option value="1" {{ 'selected' if values.table == '1' }}>1</option>
+          <option value="2" {{ 'selected' if values.table == '2' }}>2</option>
+          <option value="3" {{ 'selected' if values.table == '3' }}>3</option>
+          <option value="4" {{ 'selected' if values.table == '4' }}>4</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="actions">
+      <button class="button" type="submit">Зарезервувати</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}LAB 5 — Усі резервації{% endblock %}
+
+{% block content %}
+<section class="intro">
+  <p class="tag">Журнал</p>
+  <h1>Список резервацій</h1>
+</section>
+
+{% if records %}
+<section class="panel">
+  <h2>Заявки</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        {% for label in labels.values() %}
+        <th>{{ label }}</th>
+        {% endfor %}
+        <th>Створено (UTC)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in records %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        {% for field in labels %}
+        <td>
+          {% if field == 'location' %}
+          <span class="badge">{{ record.get(field, '') }}</span>
+          {% else %}
+          {{ record.get(field, '') }}
+          {% endif %}
+        </td>
+        {% endfor %}
+        <td>
+          {{ record.get('created_at', '')|datetime_utc }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% else %}
+<section class="panel narrow center">
+  <h2>Порожньо</h2>
+</section>
+{% endif %}
+{% endblock %}

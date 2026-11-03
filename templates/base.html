@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}LAB 5{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="{{ url_for('index') }}">Lab 5</a>
+        <span>
+          <a
+            href="{{ url_for('index') }}"
+            class="{{ 'active' if request.endpoint == 'index' }}"
+          >Нова заявка</a>
+          <a
+            href="{{ url_for('preorders') }}"
+            class="{{ 'active' if request.endpoint == 'preorders' }}"
+          >Усі резервації</a>
+        </span>
+      </nav>
+    </header>
+
+    <main class="page">{% block content %}{% endblock %}</main>
+
+    <footer>
+      <p>Lab 5 - Kanzeba Serhii</p>
+    </footer>
+  </body>
+</html>
